@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { TailwindProvider } from 'tailwind-rn'
+import { NavigationContainer } from '@react-navigation/native'
+
+import utilities from './tailwind.json'
+import RootNavigator from './src/navigator/RootNavigator'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    // @ts-ignore - Tailwind provider is missing a type definition
+    <TailwindProvider utilities={utilities}>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </TailwindProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
