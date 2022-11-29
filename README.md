@@ -2,7 +2,7 @@
 
 React-native UPS-clone app
 
-### Ordered
+### How to start
 
 1. Clone app `git@github.com:Vasylkivskyi/ups-clone.git`
 2. Install node modules `npm install`
