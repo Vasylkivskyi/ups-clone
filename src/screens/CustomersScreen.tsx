@@ -1,60 +1,55 @@
-import { ActivityIndicator, ScrollView } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
-import { useTailwind } from "tailwind-rn/dist";
-import { useQuery } from "@apollo/client";
-import {
-  CompositeNavigationProp,
-  useNavigation,
-} from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
-import { Image, Input } from "@rneui/themed";
+import { ActivityIndicator, ScrollView } from 'react-native'
+import { useLayoutEffect, useState } from 'react'
+import { useTailwind } from 'tailwind-rn/dist'
+import { useQuery } from '@apollo/client'
+import { CompositeNavigationProp, useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
+import { Image, Input } from '@rneui/themed'
 
-import { RootStackParamList } from "../navigator/RootNavigator";
-import { TabStackParamList } from "../navigator/TabNavigator";
-import { GET_CUSTOMERS } from "../graphql/queries";
-import CustomerCard from "../components/CustomerCard";
+import { RootStackParamList } from '../navigator/RootNavigator'
+import { TabStackParamList } from '../navigator/TabNavigator'
+import { GET_CUSTOMERS } from '../graphql/queries'
+import CustomerCard from '../components/CustomerCard'
 
 export type CustomersScreenNavigationProp = CompositeNavigationProp<
-  BottomTabNavigationProp<TabStackParamList, "Customers">,
+  BottomTabNavigationProp<TabStackParamList, 'Customers'>,
   NativeStackNavigationProp<RootStackParamList>
->;
+>
 
 const CustomersScreen = () => {
-  const tw = useTailwind();
-  const navigation = useNavigation<CustomersScreenNavigationProp>();
-  const [input, setInput] = useState<string>("");
-  const { loading, error, data } = useQuery(GET_CUSTOMERS);
+  const tw = useTailwind()
+  const navigation = useNavigation<CustomersScreenNavigationProp>()
+  const [input, setInput] = useState<string>('')
+  const { loading, error, data } = useQuery(GET_CUSTOMERS)
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
-    });
-  }, []);
+    })
+  }, [])
 
   return (
-    <ScrollView style={{ backgroundColor: "#59C1CC" }}>
+    <ScrollView style={{ backgroundColor: '#59C1CC' }}>
       <Image
-        source={{ uri: "https://links.papareact.com/3jc" }}
-        containerStyle={tw("w-full h-64")}
+        source={{ uri: 'https://links.papareact.com/3jc' }}
+        containerStyle={tw('w-full h-64')}
         PlaceholderContent={<ActivityIndicator />}
       />
       <Input
         placeholder="Search by customer"
         value={input}
         onChangeText={setInput}
-        containerStyle={tw("bg-white pt-5 pb-0 px-10")}
+        containerStyle={tw('bg-white pt-5 pb-0 px-10')}
       />
 
       {data?.getCustomers
-        ?.filter((customer: CustomerList) =>
-          customer.value.name.includes(input)
-        )
+        ?.filter((customer: CustomerList) => customer.value.name.includes(input))
         .map(({ name: ID, value: { email, name } }: CustomerResponse) => (
           <CustomerCard key={ID} email={email} name={name} userId={ID} />
         ))}
     </ScrollView>
-  );
-};
+  )
+}
 
-export default CustomersScreen;
+export default CustomersScreen

@@ -1,12 +1,8 @@
-import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Card, Icon } from '@rneui/themed'
 import { useTailwind } from 'tailwind-rn/dist'
-import { CompositeNavigationProp, useNavigation } from '@react-navigation/native'
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
-import { TabStackParamList } from '../navigator/TabNavigator'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { RootStackParamList } from '../navigator/RootNavigator'
+import { useNavigation } from '@react-navigation/native'
+
 import { OrdersScreenNavigationProp } from '../screens/OrdersScreen'
 
 type Props = {

@@ -1,5 +1,4 @@
 import { Text, TouchableOpacity, View } from 'react-native'
-import { Component } from 'react'
 import { useTailwind } from 'tailwind-rn/dist'
 import { useNavigation } from '@react-navigation/native'
 import { Card, Icon } from '@rneui/themed'

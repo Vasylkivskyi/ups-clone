@@ -1,5 +1,4 @@
 import { View, Text } from 'react-native'
-import React from 'react'
 import { useTailwind } from 'tailwind-rn/dist'
 import { Card, Icon, Divider } from '@rneui/themed'
 import MapView, { Marker } from 'react-native-maps'

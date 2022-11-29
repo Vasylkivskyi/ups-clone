@@ -1,7 +1,8 @@
-import { Text, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import { View } from 'react-native'
+import { useLayoutEffect } from 'react'
 import { useTailwind } from 'tailwind-rn/dist'
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native'
+
 import { OrdersScreenNavigationProp } from './OrdersScreen'
 import { RootStackParamList } from '../navigator/RootNavigator'
 import DeliveryCard from '../components/DeliveryCard'
