@@ -34,6 +34,10 @@
   z-index: 10
 }
 
+.m-0 {
+  margin: 0px
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem
@@ -52,12 +56,20 @@
   margin-left: auto
 }
 
+.-mt-3 {
+  margin-top: -0.75rem
+}
+
 .mt-5 {
   margin-top: 1.25rem
 }
 
 .ml-2 {
   margin-left: 0.5rem
+}
+
+.-mt-2 {
+  margin-top: -0.5rem
 }
 
 .h-64 {
@@ -70,6 +82,10 @@
 
 .flex-row {
   flex-direction: row
+}
+
+.items-start {
+  align-items: flex-start
 }
 
 .items-center {
